@@ -1,0 +1,37 @@
+function_descriptions = [
+    {
+        "name": "extract_info_from_email",
+        "description": "categorizar y extraer información clave de un correo, como el caso de uso, nombre de la empresa, detalles de contacto, la intención, etc.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "companyName": {
+                    "type": "string",
+                    "description": "Nombre de la empresa que envía el correo"
+                },                        
+                "priority": {
+                    "type": "string",
+                    "description": "Intenta dar una puntuación de prioridad a este correo basándote en cuán probable es que este correo lleve a una buena oportunidad de negocio, de 0 a 10; 10 más importante"
+                },
+                "category": {
+                    "type": "string",
+                    "description": "Intenta categorizar este correo en categorías como las siguientes: 1. Inventario 2. Importaciones; 3. Compra; 4. Equipo de operaciones; etc."
+                },
+                "SalesOrder": {
+                    "type": "string",
+                    "description": "Intenta identificar si el correo habla de pedidos de venta, PAT, o algun numero de facturas. Separalos por coma. si no hay deja el campo en blanco"
+                },
+                "amount":{
+                    "type": "string",
+                    "description": "Intenta identificar el monto del que se habla en el correo, si es que hay."
+                },
+                "nextStep":{
+                    "type": "string",
+                    "description": "Cual es el siguiente paso que recomiendas hacer para resolver el problema o avanzar con el proyecto."
+                }
+            },
+            "required": ["companyName", "amount", "SalesOrder", "priority", "category", "nextStep"]
+        }
+    }
+]
+
