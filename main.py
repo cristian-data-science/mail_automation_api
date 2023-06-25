@@ -23,7 +23,7 @@ function_descriptions = [
                 },
                 "personName": {
                     "type": "string",
-                    "description": "Nombre de la persona que envía el correo, este es el nombre antes del @ ejemplo: cristian@patagonia.com, el nombre es cristian"
+                    "description": "Nombre de la persona que envía el correo, Este se encuentra en el principio del correo. ej: De: Zdenka Skorin Milovic <zdenka.skorin@patagonia.com>"
                 },
                 "resumen": {
                     "type": "string",
