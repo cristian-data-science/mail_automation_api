@@ -45,7 +45,7 @@ function_descriptions = [
                 },
                 "tareas": {
                     "type": "string",
-                    "description": "Intenta identificar las tareas que me piden realizar en el correo, separar las tareas en comas"
+                    "description": "Intenta identificar las tareas que se deben realizar segun el correo, resumir en menos de 5 palabras cada tarea y separarlas por comas"
                 },
                 "nextStep":{
                     "type": "string",
