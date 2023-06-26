@@ -37,7 +37,7 @@ function_descriptions = [
                 },                                                
                 "priority": {
                     "type": "string",
-                    "description": "Intenta dar una prioridad a este correo basándote en la importancia o urgencia que le da el remitente en categorías como las siguientes: 1. no urgente 2. medianamente urgente 3. muy urgente "
+                    "description": "Intenta dar una prioridad a este correo basándote en la importancia o urgencia que le da el remitente en categorías como las siguientes: no urgente, medianamente urgente, muy urgente"
                 },
                 "category": {
                     "type": "string",
