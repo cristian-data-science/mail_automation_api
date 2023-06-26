@@ -41,7 +41,7 @@ function_descriptions = [
                 },
                 "category": {
                     "type": "string",
-                    "description": "Intenta categorizar este correo en categorías como las siguientes: Inventario,Importaciones, Facturación; Soporte; Reunion con USA, etc."
+                    "description": "Intenta categorizar este correo en categorías como las siguientes: Reportes, Inventario,Importaciones, Facturación; Soporte; Reunion con USA, etc."
                 },
                 "tareas": {
                     "type": "string",
