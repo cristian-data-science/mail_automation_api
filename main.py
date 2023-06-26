@@ -47,12 +47,16 @@ function_descriptions = [
                     "type": "string",
                     "description": "Identifica las tareas que se deben realizar en el texto. resumir en menos de 5 palabras cada tarea y separarlas por comas"
                 },
+                "RequiereRespuesta": {
+                    "type": "string",
+                    "description": "Identifica si el correo requiere una respuesta. responde: Si, No, No identificado."
+                },
                 "nextStep":{
                     "type": "string",
                     "description": "Define el siguiente paso que recomiendas hacer para avanzar el tema especifico del correo."
                 }
             },
-            "required": ["companyName","resumen","personName", "amount", "salesOrder", "priority", "category", "tareas", "nextStep"]
+            "required": ["companyName","resumen","personName", "amount", "salesOrder", "priority", "category", "tareas","RequiereRespuesta", "nextStep"]
         }
     }
 ]
@@ -104,6 +108,7 @@ def analyse_email(email: Email, username: str = Depends(get_current_username)):
         salesOrder = arguments.get("salesOrder")
         category = arguments.get("category")
         tareas = arguments.get("tareas")
+        RequiereRespuesta = arguments.get("RequiereRespuesta")
         nextStep = arguments.get("nextStep")
 
         return {
@@ -114,6 +119,7 @@ def analyse_email(email: Email, username: str = Depends(get_current_username)):
             "priority": priority,
             "category": category,
             "tareas": tareas,
+            "RequiereRespuesta": RequiereRespuesta,
             "nextStep": nextStep
         }
     except Exception as e:
