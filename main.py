@@ -45,14 +45,14 @@ function_descriptions = [
                 },
                 "tareas": {
                     "type": "string",
-                    "description": "Intenta identificar las tareas que se deben realizar segun el correo, resumir en menos de 5 palabras cada tarea y separarlas por comas"
+                    "description": "Intenta identificar las tareas que se deben realizar en el texto resumir en menos de 5 palabras cada tarea y separarlas por comas"
                 },
                 "nextStep":{
                     "type": "string",
                     "description": "Define el siguiente paso que recomiendas hacer para avanzar el tema especifico del correo."
                 }
             },
-            "required": ["companyName","resumen","personName", "amount", "salesOrder", "priority", "category", "nextStep"]
+            "required": ["companyName","resumen","personName", "amount", "salesOrder", "priority", "category", "tareas", "nextStep"]
         }
     }
 ]
