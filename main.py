@@ -41,11 +41,11 @@ function_descriptions = [
                 },
                 "category": {
                     "type": "string",
-                    "description": "Intenta categorizar este correo en categorías como las siguientes: 1. Inventario 2. Importaciones; 3. Compra; 4. Equipo de operaciones; Reunion con USA, etc."
+                    "description": "Intenta categorizar este correo en categorías como las siguientes: Inventario,Importaciones, Facturación; Soporte; Reunion con USA, etc."
                 },
                 "tareas": {
                     "type": "string",
-                    "description": "Intenta identificar las tareas que se deben realizar en el texto resumir en menos de 5 palabras cada tarea y separarlas por comas"
+                    "description": "Identifica las tareas que se deben realizar en el texto. resumir en menos de 5 palabras cada tarea y separarlas por comas"
                 },
                 "nextStep":{
                     "type": "string",
