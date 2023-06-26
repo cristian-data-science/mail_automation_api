@@ -1,14 +1,20 @@
+from fastapi import FastAPI, Depends, HTTPException, status
+from fastapi.security import HTTPBasic, HTTPBasicCredentials
+from pydantic import BaseModel
+from dotenv import load_dotenv
 import openai
 import os
-from dotenv import load_dotenv
-from fastapi import FastAPI
-from pydantic import BaseModel
+import secrets
 import json
 
+# Cargamos las variables de entorno y establecemos la clave de la API de OpenAI
 load_dotenv()
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
 app = FastAPI()
+
+# Inicializamos la autenticación básica HTTP
+security = HTTPBasic()
 
 function_descriptions = [
     {
@@ -53,16 +59,29 @@ function_descriptions = [
 
 
 
+# Definimos el modelo de email
 class Email(BaseModel):
     from_email: str
     content: str
+
+# Función para validar las credenciales del usuario
+def get_current_username(credentials: HTTPBasicCredentials = Depends(security)):
+    correct_username = secrets.compare_digest(credentials.username, os.getenv('user_api'))
+    correct_password = secrets.compare_digest(credentials.password, os.getenv('pass_api'))
+    if not (correct_username and correct_password):
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Incorrect email or password",
+            headers={"WWW-Authenticate": "Basic"},
+        )
+    return credentials.username
 
 @app.get("/")
 def read_root():
     return {"Hello": "World"}
 
 @app.post("/")
-def analyse_email(email: Email):
+def analyse_email(email: Email, username: str = Depends(get_current_username)):
     try:
         content = email.content
         from_email = email.from_email
