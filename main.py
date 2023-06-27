@@ -29,7 +29,7 @@ function_descriptions = [
                 },
                 "personName": {
                     "type": "string",
-                    "description": "Nombre de la persona que envía el correo, Este se encuentra en el principio del correo. ej: De: Zdenka Skorin Milovic <zdenka.skorin@patagonia.com>"
+                    "description": "Nombre de la persona que envía el correo, Este se encuentra en el principio del correo. ej: '\r\n\r\nDe: Clemente Videla <clemente.videla@patagonia.com>\r\nEnviado el:'"
                 },
                 "resumen": {
                     "type": "string",
@@ -88,8 +88,8 @@ def read_root():
 def analyse_email(email: Email, username: str = Depends(get_current_username)):
     try:
         content = email.content
-        from_email = email.from_email
-        query = f"Please extract key information from this email: {from_email + content} "
+        #from_email = email.from_email
+        query = f"Please extract key information from this email: {content} "
         messages = [{"role": "user", "content": query}]
 
         response = openai.ChatCompletion.create(
