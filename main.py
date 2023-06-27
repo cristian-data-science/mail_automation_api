@@ -65,7 +65,7 @@ function_descriptions = [
 
 # Definimos el modelo de email
 class Email(BaseModel):
-    from_email: str
+    #from_email: str
     content: str
 
 # Función para validar las credenciales del usuario
