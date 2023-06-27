@@ -29,7 +29,7 @@ function_descriptions = [
                 },
                 "personName": {
                     "type": "string",
-                    "description": "Nombre de la persona que envía el correo, Este se encuentra en el principio del correo. ej: '\r\n\r\nDe: Clemente Videla <clemente.videla@patagonia.com>\r\nEnviado el:'"
+                    "description": "Nombre de la persona que envía el correo, Este se encuentra en el principio del correo. ej: 'content: \r\n\r\nDe: Clemente Videla <clemente.videla@patagonia.com>\r\nEnviado el:'"
                 },
                 "resumen": {
                     "type": "string",
